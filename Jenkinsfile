@@ -25,7 +25,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                sh '/home/jenkins/.nvm/versions/node/v23.10.0/bin/npm install'
+                sh 'npm install'
             }
         }
 
@@ -39,7 +39,7 @@ pipeline {
         stage('Build Next.js Project') {
             steps {
                 echo 'Building the project...'
-                sh '/home/jenkins/.nvm/versions/node/v23.10.0/bin/npm run build'
+                sh 'npm run build'
             }
         }
 
