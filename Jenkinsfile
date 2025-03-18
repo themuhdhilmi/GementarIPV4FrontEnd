@@ -40,12 +40,12 @@ pipeline {
             }
         }
 
-        stage('Build Next.js Project') {
-            steps {
-                echo 'Building the project...'
-                sh 'npm run build'
-            }
-        }
+        // stage('Build Next.js Project') {
+        //     steps {
+        //         echo 'Building the project...'
+        //         sh 'npm run build'
+        //     }
+        // }
 
         stage('Build Docker Image') {
             steps {
