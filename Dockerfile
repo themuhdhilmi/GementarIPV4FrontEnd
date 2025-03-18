@@ -14,9 +14,9 @@ RUN groupadd --system --gid 1001 nodejs
 RUN useradd --system --uid 1001 --gid nodejs nextjs
 
 # Copy built files from Jenkins (assumed built and located in a folder like /path/to/your/build)
-COPY --from=builder /path/to/your/build/.next/standalone ./standalone
-COPY --from=builder /path/to/your/build/.next/static ./static
-COPY --from=builder /path/to/your/build/public ./public
+COPY --from=builder /build/.next/standalone ./standalone
+COPY --from=builder /build/.next/static ./static
+COPY --from=builder /build/public ./public
 
 # Set the right permissions
 RUN chown -R nextjs:nodejs ./
