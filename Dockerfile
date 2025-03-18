@@ -17,8 +17,8 @@ COPY /app/public ./public
 
 # # Automatically leverage output traces to reduce image size
 # # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --chown=nextjs:nodejs /.next/standalone ./
+COPY --chown=nextjs:nodejs /.next/static ./.next/static
 
 # Switch to the nextjs user
 USER nextjs
