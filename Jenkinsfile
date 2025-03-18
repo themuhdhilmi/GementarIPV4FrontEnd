@@ -42,5 +42,36 @@ pipeline {
                 sh 'npm run build'
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build the Docker image after the Next.js build
+                    sh """
+                    docker build -t gementar-ipv:latest .
+                    """
+                }
+            }
+        }
+        
+        stage('Save Docker Image as Artifact') {
+            steps {
+                script {
+                    // Save the Docker image to a .tar file
+                    sh """
+                    docker save -o gementar-ipv.tar gementar-ipv:latest
+                    """
+                }
+            }
+        }
+        
+        stage('Archive Docker Image') {
+            steps {
+                script {
+                    // Archive the .tar file as an artifact in Jenkins
+                    archiveArtifacts artifacts: 'gementar-ipv.tar', allowEmptyArchive: true
+                }
+            }
+        }
     }
 }
