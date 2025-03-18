@@ -14,7 +14,7 @@ pipeline {
                 script {
                     // Write the .env file with the provided environment variables
                     writeFile file: '.env', text: """
-                    NEXTAUTH_SECRET=${AUTH_SECRET}
+                    NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
                     DATABASE_URL=${DATABASE_URL}
                     NEXTAUTH_URL=${NEXTAUTH_URL}
                     """
